@@ -1,0 +1,467 @@
+dir = getDirectory("Choose a Directory ");
+      list = getFileList(dir);
+//      setBatchMode(true);
+      for (i=000; i<list.length; i++) {
+              path = dir+list[i];
+ 
+  if (endsWith(list[i], "/")){
+	//if "path" ends with "/", do nothing and skip to the next file
+	}else{
+	run("Bio-Formats Importer", "open=["+path+"] default open_all_series split_channels view=[Standard ImageJ] stack_order=Default");
+
+	if (nImages==1){
+
+		run("Merge Channels...", "red=["+list[i]+ " - C=0] green=*None* blue=*None* gray=*None*");
+
+		dotIndex = lastIndexOf(list[i], ".");
+	        if (dotIndex!=-1)
+   	          list[i] = substring(list[i], 0, dotIndex); // remove extension
+	          myDir = dir+"RGB_tif"+File.separator;
+      		    File.makeDirectory(myDir);
+
+    		      sndir = dir+"RGB_tif"+"/";
+          	save(sndir+list[i]+"_1ch.tif");
+	close();
+
+}
+
+	if (nImages==2){
+
+		run("Merge Channels...", "red=["+list[i]+ " - C=1] green=["+list[i]+ " - C=0] blue=*None* gray=*None*");
+
+		dotIndex = lastIndexOf(list[i], ".");
+     		if (dotIndex!=-1)
+             list[i] = substring(list[i], 0, dotIndex); // remove extension
+	      myDir = dir+"RGB_tif"+File.separator;
+      		File.makeDirectory(myDir);
+
+          sndir = dir+"RGB_tif"+"/";
+          save(sndir+list[i]+"_2ch.tif");
+	close();
+}
+
+	if (nImages==3){
+
+		run("Merge Channels...", "red=["+list[i]+ " - C=1] green=["+list[i]+ " - C=0] blue=["+list[i]+" - C=2] gray=*None*");
+
+		dotIndex = lastIndexOf(list[i], ".");
+     		if (dotIndex!=-1)
+             list[i] = substring(list[i], 0, dotIndex); // remove extension
+	      myDir = dir+"RGB_tif"+File.separator;
+      		File.makeDirectory(myDir);
+
+          sndir = dir+"RGB_tif"+"/";
+          save(sndir+list[i]+"_3ch.tif");
+	close();
+}
+
+	if (nImages>3){
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_A.tif");
+	close();
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_FITC.tif");
+	close();
+
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_GFP.tif");
+	close();
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_DAPI.tif");
+	close();
+
+  if (nImages==0){ ///5
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_E.tif");
+	close();
+}
+
+  if (nImages==0){ ///6
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_F.tif");
+	close();
+}
+
+  if (nImages==0){ ////7
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_G.tif");
+	close();
+}
+
+  if (nImages==0){ ////8
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_H.tif");
+	close();
+}
+
+  if (nImages==0){ ////9
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_I.tif");
+	close();
+}
+
+  if (nImages==0){ ////10
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_J.tif");
+	close();
+}
+
+  if (nImages==0){ ////11
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_K.tif");
+	close();
+}
+
+  if (nImages==0){ ////12
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_L.tif");
+	close();
+}
+
+  if (nImages==0){ ////13
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_M.tif");
+	close();
+}
+
+  if (nImages==0){ ////14
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_N.tif");
+	close();
+}
+
+  if (nImages==0){ ////15
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_O.tif");
+	close();
+}
+
+  if (nImages==0){ ////16
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_P.tif");
+	close();
+}
+
+  if (nImages==0){ ////17
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_Q.tif");
+	close();
+}
+
+  if (nImages==0){ ////18
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_R.tif");
+	close();
+}
+
+  if (nImages==0){ ////19
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_S.tif");
+	close();
+}
+
+  if (nImages==0){ ////20
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_T.tif");
+	close();
+}
+
+  if (nImages==0){ ////21
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_U.tif");
+	close();
+}
+
+  if (nImages==0){ ////22
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_V.tif");
+	close();
+}
+
+  if (nImages==0){ ////23
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_W.tif");
+	close();
+}
+
+  if (nImages==0){ ////24
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_X.tif");
+	close();
+}
+
+  if (nImages==0){ ////25
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_Y.tif");
+	close();
+}
+
+  if (nImages==0){ ////26
+	}else{
+
+	run("8-bit");
+	dotIndex = lastIndexOf(list[i], ".");
+          if (dotIndex!=-1)
+              list[i] = substring(list[i], 0, dotIndex); // remove extension
+
+          myDir = dir+"8_bit_TIFF_Files"+File.separator;
+          File.makeDirectory(myDir);
+
+          sndir = dir+"8_bit_TIFF_Files"+"/";
+          save(sndir+list[i]+"_Z.tif");
+}
+
+}
+
+
+}}
+
+
+"Done"
+
